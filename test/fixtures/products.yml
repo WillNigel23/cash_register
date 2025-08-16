@@ -1,0 +1,17 @@
+gr1:
+  name: Green Tea
+  code: GR1
+  description: Buy 1 Take 1 promo
+  price: 3.11
+
+sr1:
+  name: Strawberries
+  code: SR1
+  description: Buy 3 or more, each strawberry cost will drop to 4.50€
+  price: 5.00
+
+cf1:
+  name: Coffee
+  code: CF1
+  description: Buy 3 or more, the price of all coffees should drop to 2/3 of price!
+  price: 11.23
