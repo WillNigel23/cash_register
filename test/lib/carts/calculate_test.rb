@@ -21,7 +21,10 @@ class Carts::CalculateTest < ActiveSupport::TestCase
 
     presenter = Carts::Calculate.new(cart:).perform
 
-    assert_includes presenter.order_products.flat_map(&:product), [ products(:gr1), products(:cf1), products(:sr1) ]
+    expected_products = [ products(:gr1), products(:cf1), products(:sr1) ].sort
+    presenter_products = presenter.order_products.map(&:product).sort
+
+    assert_equal presenter_products.sort, expected_products
     assert_equal presenter.total, 22.45
   end
 
@@ -32,7 +35,10 @@ class Carts::CalculateTest < ActiveSupport::TestCase
 
     presenter = Carts::Calculate.new(cart:).perform
 
-    assert_includes presenter.order_products.flat_map(&:product), [ products(:gr1) ]
+    expected_products = [ products(:gr1) ]
+    presenter_products = presenter.order_products.map(&:product)
+
+    assert_equal presenter_products.sort, expected_products
     assert_equal presenter.total, 3.11
   end
 
@@ -44,7 +50,10 @@ class Carts::CalculateTest < ActiveSupport::TestCase
 
     presenter = Carts::Calculate.new(cart:).perform
 
-    assert_includes presenter.order_products.flat_map(&:product), [ products(:gr1), products(:sr1) ]
+    expected_products = [ products(:gr1), products(:sr1) ].sort
+    presenter_products = presenter.order_products.map(&:product).sort
+
+    assert_equal presenter_products, expected_products
     assert_equal presenter.total, 16.61
   end
 
@@ -57,7 +66,10 @@ class Carts::CalculateTest < ActiveSupport::TestCase
 
     presenter = Carts::Calculate.new(cart:).perform
 
-    assert_includes presenter.order_products.flat_map(&:product), [ products(:gr1), products(:cf1), products(:sr1) ]
+    expected_products = [ products(:gr1), products(:cf1), products(:sr1) ].sort
+    presenter_products = presenter.order_products.map(&:product).sort
+
+    assert_equal presenter_products, expected_products
     assert_equal presenter.total, 30.57
   end
 end

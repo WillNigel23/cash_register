@@ -13,7 +13,14 @@
     <tbody>
       <% order_products.each do |order_product| %>
         <tr>
-          <td><%= order_product.product.name %></td>
+          <td>
+            <%= link_to remove_product_carts_path(cart_id: @current_cart.id, product_id: order_product.product_id),
+              data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+                <i class="fa fa-trash"></i>
+            <% end %>
+
+            <%= order_product.product.name %>
+          </td>
           <td><%= "#{formatted_price(order_product.product.price)} x #{order_product.quantity}" %></td>
           <td><%= formatted_price(order_product.product.price * order_product.quantity) %></td>
           <td><%= formatted_price(order_product.actual_price) %></td>

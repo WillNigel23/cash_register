@@ -1,15 +1,17 @@
 class Carts::Calculate
-  attr_accessor :order_products, :total
+  attr_accessor :order_products, :items_count, :total
 
   def initialize(cart:)
-    @cart = cart
+    @cart           = cart
     @order_products = []
-    @total = 0
+    @items_count    = 0
+    @total          = 0
   end
 
   def perform
     @cart.cart_products.includes(:product).each do |cart_product|
       actual_price = calculate_actual_price(cart_product).round(2)
+      @items_count += cart_product.quantity
       @total += actual_price
       order_product = OrderProduct.new(
         product_id: cart_product.product_id,
