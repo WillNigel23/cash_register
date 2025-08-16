@@ -1,0 +1,9 @@
+<h1> Products: </h1>
+
+<ul>
+  <% if @products.any? %>
+    <%= render collection: @products, partial: 'product' %>
+  <% else %>
+    <p> No products available. </p>
+  <% end %>
+</ul>
