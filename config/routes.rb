@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :products, only: [ :index ]
   resources :carts, only: [ :update ]
+  resources :orders, only: [ :new, :create ]
 
   root "products#index"
 end

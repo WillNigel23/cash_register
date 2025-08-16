@@ -1,0 +1,36 @@
+<span id="breakdown">
+  <h1> Breakdown: </h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Original Price</th>
+        <th>Promo Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% order_products.each do |order_product| %>
+        <tr>
+          <td><%= order_product.product.name %></td>
+          <td><%= "#{formatted_price(order_product.product.price)} x #{order_product.quantity}" %></td>
+          <td><%= formatted_price(order_product.product.price * order_product.quantity) %></td>
+          <td><%= formatted_price(order_product.actual_price) %></td>
+        </tr>
+      <% end %>
+      <tr>
+        <td>
+          <strong>
+            Total
+          </strong>
+        </td>
+        <td></td>
+        <td></td>
+        <td>
+          <strong><%= formatted_price(total) %></strong>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</span

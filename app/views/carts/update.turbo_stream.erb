@@ -1,1 +1,4 @@
-<%= turbo_stream.replace("checkout_badge", partial: "shared/checkout_badge", locals: { items_count: @items_count }) %>
+<% if @result.success %>
+  <%= turbo_stream.replace("checkout_badge", partial: "shared/checkout_badge", locals: { items_count: @items_count }) %>
+  <%= turbo_stream.replace("product_#{@result.product.id}", partial: "products/product", locals: { product: @result.product }) %>
+<% end %>
