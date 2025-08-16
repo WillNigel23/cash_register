@@ -19,6 +19,9 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render partial: "shared/navbar" %>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>

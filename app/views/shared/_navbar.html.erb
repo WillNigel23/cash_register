@@ -1,0 +1,4 @@
+<nav>
+  <%= link_to "Products", root_path, class: "nav-item" %>
+  <%= render partial: "shared/checkout_badge", locals: { items_count: @current_cart_count } %>
+</nav>

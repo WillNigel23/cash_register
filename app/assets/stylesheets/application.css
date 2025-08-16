@@ -8,3 +8,46 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+body {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  border-bottom: 1px solid black;
+  padding: 5px;
+  width: 100%;
+}
+
+.nav-item {
+  padding: 2px 4px 2px 4px;
+  margin: 2px;
+}
+
+.products-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  border: 1px solid black;
+  padding: 15px;
+  width: 250px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 5px;
+}

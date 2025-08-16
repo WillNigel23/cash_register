@@ -1,5 +1,16 @@
-<strong>
-  <%= product.name %>
-</strong>
-<p><%= formatted_price(product.price) %> </p>
-<p><%= product.description %> </p>
+<%= form_with url: cart_path(@current_cart), method: :patch, data: { turbo: true, controller: "quantity" }, class: "product-card" do |f| %>
+  <%= f.hidden_field "cart[product_id]", value: product.id %>
+  <%= f.hidden_field "cart[quantity]", value: 1, data: { quantity_target: "input" } %>
+
+  <strong><%= product.name %></strong>
+  <p><%= number_with_precision(product.price, precision: 2) %> €</p>
+  <p><%= product.description %></p>
+
+  <div class="quantity-selector">
+    <button type="button" data-action="click->quantity#decrease">-</button>
+    <span data-quantity-target="counter">1</span>
+    <button type="button" data-action="click->quantity#increase">+</button>
+  </div>
+
+  <%= f.submit "Add to Cart" %>
+<% end %>
