@@ -1,6 +1,6 @@
 <li id="checkout_badge">
   <%= link_to new_order_path, class: "flex items-center text-gray-300 hover:text-white" do %>
     <i class="fas fa-shopping-cart mr-2"></i>
-    Checkout Cart: <%= items_count %>
+    <%= t("buttons.checkout_cart", count: items_count) %>
   <% end %>
 </li>

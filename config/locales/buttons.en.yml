@@ -1,0 +1,5 @@
+en:
+  buttons:
+    add_to_cart: Add to Cart
+    checkout_cart: "Checkout Cart: %{count}"
+    products: Products

@@ -10,7 +10,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :success
 
-    assert_includes @response.body, "No products available."
+    assert_includes @response.body, "No products available"
   end
 
   test "should get index" do

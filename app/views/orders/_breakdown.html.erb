@@ -1,14 +1,14 @@
 <span id="breakdown" class="mt-6 block">
-  <h1 class="text-xl font-bold mb-3">Breakdown:</h1>
+  <h1 class="text-xl font-bold mb-3"><%= t("titles.breakdown") %></h1>
 
   <div class="overflow-x-auto">
     <table class="min-w-full border border-gray-200 divide-y divide-gray-200">
       <thead class="bg-gray-100">
         <tr>
-          <th class="px-4 py-2 text-left text-gray-700 font-semibold">Product</th>
-          <th class="px-4 py-2 text-left text-gray-700 font-semibold">Quantity</th>
-          <th class="px-4 py-2 text-left text-gray-700 font-semibold">Original Price</th>
-          <th class="px-4 py-2 text-left text-gray-700 font-semibold">Promo Price</th>
+          <th class="px-4 py-2 text-left text-gray-700 font-semibold"><%= t("titles.product") %></th>
+          <th class="px-4 py-2 text-left text-gray-700 font-semibold"><%= t("titles.quantity") %></th>
+          <th class="px-4 py-2 text-left text-gray-700 font-semibold"><%= t("titles.original_price") %></th>
+          <th class="px-4 py-2 text-left text-gray-700 font-semibold"><%= t("titles.promo_price") %></th>
         </tr>
       </thead>
       <tbody class="bg-white divide-y divide-gray-200">
@@ -28,7 +28,7 @@
           </tr>
         <% end %>
         <tr class="font-semibold bg-gray-50">
-          <td class="px-4 py-2">Total</td>
+          <td class="px-4 py-2"><%= t("titles.total") %></td>
           <td></td>
           <td></td>
           <td class="px-4 py-2"><%= formatted_price(total) %></td>

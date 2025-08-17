@@ -32,7 +32,7 @@ class Orders::Create
     @order.valid?
 
     unless @order.order_products.size > 0
-      @order.errors.add(:products, "must be at least 1")
+      @order.errors.add(:products, I18n.t("errors.at_least_one"))
     end
 
     raise ArgumentError, "invalid order" if @order.errors.any?

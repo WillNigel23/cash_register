@@ -1,2 +1,2 @@
 <%= turbo_stream.replace("order-form", partial: "form", locals: { order: @order, order_products: @order_products, total: @total }) %>
-<%= turbo_flash("Something went wrong.", :error) %>
+<%= turbo_flash(t("error"), :error) %>

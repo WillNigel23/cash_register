@@ -1,9 +1,9 @@
 <nav class="bg-gray-800 p-4">
   <div class="container mx-auto flex items-center justify-between">
-    <%= link_to "Cash Register", root_path, class: "text-white font-bold text-xl" %>
+    <%= link_to t("titles.cash_register"), root_path, class: "text-white font-bold text-xl" %>
 
     <ul class="flex space-x-6">
-      <%= link_to "Products", root_path, class: "text-gray-300 hover:text-white" %>
+      <%= link_to t("buttons.products"), root_path, class: "text-gray-300 hover:text-white" %>
       <%= render partial: "shared/checkout_badge", locals: { items_count: @current_cart_count } %>
     <ul>
   </div>

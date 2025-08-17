@@ -1,5 +1,5 @@
 class Carts::RemoveProduct
-  attr_accessor :cart, :success
+  attr_accessor :cart, :product, :success
 
   def initialize(cart:, product:)
     @cart    = cart

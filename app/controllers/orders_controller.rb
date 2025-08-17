@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
     ).perform
 
     if result.success
-      flash[:notice] = "Order was successfully created!"
+      flash[:notice] = t("order_created")
       redirect_to root_path(format: :html)
     else
       @order = result.order

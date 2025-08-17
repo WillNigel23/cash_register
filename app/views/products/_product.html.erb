@@ -2,7 +2,7 @@
   <%= f.hidden_field "cart[product_id]", value: product.id %>
 
   <strong class="text-lg font-semibold"><%= product.name %></strong>
-  <p class="text-gray-700"><%= formatted_price(product.price) %> €</p>
+  <p class="text-gray-700"><%= formatted_price(product.price) %></p>
   <p class="text-gray-600 text-sm"><%= product.description %></p>
 
   <div class="flex items-center space-x-2 mt-2" data-controller="quantity">
@@ -12,5 +12,5 @@
     <button type="button" class="bg-gray-200 px-2 rounded" data-action="click->quantity#increase">+</button>
   </div>
 
-  <%= f.submit "Add to Cart", class: "bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mt-2" %>
+  <%= f.submit t("buttons.add_to_cart"), class: "bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mt-2" %>
 <% end %>
