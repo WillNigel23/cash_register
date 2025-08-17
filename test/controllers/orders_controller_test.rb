@@ -71,4 +71,39 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
 
     assert_includes @response.body, "30.57€"
   end
+
+  test "should create order and clear cart" do
+    # This is to initialize session[:cart_id]
+    get root_url
+
+    cart = Cart.last
+    product = products(:gr1)
+    cart.products << product
+
+    post orders_path, params: {
+      order: {
+        name: "Customer Name",
+        address: "Customer Address"
+      }
+    }, as: :turbo_stream
+
+    assert_response :redirect
+    assert_redirected_to root_path(format: :html)
+  end
+
+  test "should graceful fail order and present errors" do
+    post orders_path, params: {
+      order: {
+        name: "",
+        address: ""
+      }
+    }, as: :turbo_stream
+
+    assert_response :success
+
+    html = CGI.unescapeHTML(@response.body)
+    assert_includes html, "Name can't be blank"
+    assert_includes html, "Address can't be blank"
+    assert_includes html, "Products must be at least 1"
+  end
 end

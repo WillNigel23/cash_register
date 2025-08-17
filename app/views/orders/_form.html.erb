@@ -1,0 +1,26 @@
+<%= form_with model: order, html: { id: "order-form", class: "order-form" } do |f| %>
+  <% if order.errors.any? %>
+    <div>
+      <p><%= pluralize(order.errors.count, "error") %> prevented this order from being saved:</p>
+      <ul>
+        <% order.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+
+  <%= f.submit "Confirm" %>
+
+  <%= render partial: "breakdown", locals: { order_products:, total: } %>
+<% end %>
