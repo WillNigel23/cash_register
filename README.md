@@ -1,24 +1,26 @@
-# README
+# Cash Register App
+### Author: Will Nigel C. De Jesus
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Minimalist cash register app created with Ruby on Rails
 
-Things you may want to cover:
+## Features
 
-* Ruby version
+1. Page/element updates using hotwire for reactivity
 
-* System dependencies
+2. DB-level safeguards to prevent bad data from occuring
 
-* Configuration
+3. Single Responsiblity Principle.
 
-* Database creation
+  - Controllers are for handling requests/responses
 
-* Database initialization
+  - Libs for interacting with database
 
-* How to run the test suite
+  - This allows better testing, readability, and allows for easy modifications
 
-* Services (job queues, cache servers, search engines, etc.)
+4. Server-side validations, including the presentation/calculation of price. Since the server is the only source of truth, this prevents unnecessary state management for such simple app.
 
-* Deployment instructions
+## Instructions
 
-* ...
+1. Run `rails db:migrate db:create db:seed` to seed data
+
+2. Run `bin/dev` to start server
