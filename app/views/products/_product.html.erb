@@ -1,16 +1,16 @@
-<%= form_with url: cart_path(@current_cart), method: :patch, data: { turbo: true }, class: "product-card", id: dom_id(product) do |f| %>
+<%= form_with url: cart_path(@current_cart), method: :patch, data: { turbo: true }, class: "bg-white shadow rounded p-4 flex flex-col justify-between h-full", id: dom_id(product) do |f| %>
   <%= f.hidden_field "cart[product_id]", value: product.id %>
 
-  <strong><%= product.name %></strong>
-  <p><%= number_with_precision(product.price, precision: 2) %> €</p>
-  <p><%= product.description %></p>
+  <strong class="text-lg font-semibold"><%= product.name %></strong>
+  <p class="text-gray-700"><%= formatted_price(product.price) %> €</p>
+  <p class="text-gray-600 text-sm"><%= product.description %></p>
 
-  <div class="quantity-selector" data-controller="quantity">
+  <div class="flex items-center space-x-2 mt-2" data-controller="quantity">
+    <button type="button" class="bg-gray-200 px-2 rounded" data-action="click->quantity#decrease">-</button>
+    <span data-quantity-target="counter" class="px-2"><%= 1 %></span>
     <%= f.hidden_field "cart[quantity]", value: 1, data: { quantity_target: "input" } %>
-    <button type="button" data-action="click->quantity#decrease">-</button>
-    <span data-quantity-target="counter">1</span>
-    <button type="button" data-action="click->quantity#increase">+</button>
+    <button type="button" class="bg-gray-200 px-2 rounded" data-action="click->quantity#increase">+</button>
   </div>
 
-  <%= f.submit "Add to Cart" %>
+  <%= f.submit "Add to Cart", class: "bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mt-2" %>
 <% end %>

@@ -37,3 +37,7 @@ group :test do
 end
 
 gem "database_validations"
+
+gem "tailwindcss-ruby"
+
+gem "tailwindcss-rails"

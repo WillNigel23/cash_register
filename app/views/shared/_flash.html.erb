@@ -1,0 +1,21 @@
+<% case type.to_sym
+  when :notice
+    alert_class = 'bg-white text-blue-600 border-l-4 border-pink-400'
+    icon_class  = 'fa-solid fa-circle-info'
+  when :alert
+    alert_class = 'bg-orange-100 text-orange-800 border-l-4 border-orange-500'
+    icon_class  = 'fa-solid fa-circle-exclamation'
+  when :error
+    alert_class = 'bg-red-100 text-red-800 border-l-4 border-red-500'
+    icon_class  = 'fa-solid fa-circle-exclamation'
+  else
+    alert_class = 'bg-gray-100 text-gray-800 border-l-4 border-gray-400'
+    icon_class  = 'fa-solid fa-circle'
+  end
+%>
+
+<div class="<%= alert_class %> px-4 py-3 rounded shadow-md text-sm flex items-center gap-2" data-controller="flash" data-flash-type-value="<%= type %>">
+  <i class="<%= icon_class %> w-5 h-5 flex-shrink-0"></i>
+  <span class="flex-grow"><%= message %></span>
+  <i class="fa-solid fa-xmark cursor-pointer" data-action="click->flash#close"></i>
+</div>

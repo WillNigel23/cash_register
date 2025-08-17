@@ -1,4 +1,7 @@
 <% if @result.success %>
   <%= turbo_stream.replace("checkout_badge", partial: "shared/checkout_badge", locals: { items_count: @items_count }) %>
   <%= turbo_stream.replace("breakdown", partial: "orders/breakdown", locals: { order_products: @order_products, total: @total }) %>
+  <%= turbo_flash("#{@product.name} removed from cart", :alert) %>
+<% else %>
+  <%= turbo_flash("Something went wrong.", :error) %>
 <% end %>

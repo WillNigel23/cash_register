@@ -10,8 +10,8 @@ class CartsController < ApplicationController
 
   def remove_product
     cart = Cart.find(params[:cart_id])
-    product = Product.find(params[:product_id])
-    @result = Carts::RemoveProduct.new(cart:, product:).perform
+    @product = Product.find(params[:product_id])
+    @result = Carts::RemoveProduct.new(cart:, product: @product).perform
 
     checkout_presenter = Carts::Calculate.new(cart: @result.cart).perform
     @items_count = checkout_presenter.items_count

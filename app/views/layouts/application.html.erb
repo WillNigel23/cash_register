@@ -19,10 +19,17 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="bg-gray-100 min-h-screen flex flex-col">
     <%= render partial: "shared/navbar" %>
-    <main>
+
+    <main class="flex-1 w-full p-4 max-w-7xl mx-auto">
       <%= yield %>
     </main>
+
+    <div id="flash" class="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md space-y-3">
+      <% flash.each do |type, message| %>
+        <%= render partial: "shared/flash", locals: { type:, message: } %>
+      <% end %>
+    </div>
   </body>
 </html>
