@@ -10,5 +10,4 @@ module ApplicationHelper
   def turbo_modal(partial:, target: "modal", locals: {})
     turbo_stream.replace(target, partial:, locals:)
   end
-
 end
